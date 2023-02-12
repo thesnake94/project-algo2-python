@@ -26,3 +26,4 @@ pip install beautifulsoup4
 
 requests pour rfaire des demandes HTTP a des serveurs pour interagir avec
 pip install requests
+
