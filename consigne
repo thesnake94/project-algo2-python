@@ -1,0 +1,28 @@
+install les paquets : 
+
+
+selenium pour les tests sur navigateurs avec clique sur boutons
+pip install selenium
++ install le driver sur le navigateur
+
+
+tkinter pour interface graphique
+pip install tkinter
+pip install tk
+
+
+PyQt5 pour autre interface graphique
+pip install PyQt5
+
+
+wxPython autre interface graphique
+pip install wxPython
+(marche pas sur mon portable)
+
+
+beautifulsoup pour extraire et manipulé des données a partir de html
+pip install beautifulsoup4
+
+
+requests pour rfaire des demandes HTTP a des serveurs pour interagir avec
+pip install requests
