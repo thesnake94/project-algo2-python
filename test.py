@@ -1,5 +1,5 @@
 import csv
-import pandas  # pip install pandas
+# import pandas  # pip install pandas
 
 
 fd = open("file.csv", "w")

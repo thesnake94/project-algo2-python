@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
-# choisir marque et année min et max de la voiture
+# choisir les filtres
 brand = "BMW"
 year_min = 2010
 year_max = 2019
@@ -11,10 +11,8 @@ energies = "ess"
 url = """https://www.lacentrale.fr/listing?energies={energies}&makesModelsCommercialNames={brand}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
 brand=brand,energies=energies, power_min=power_min, year_min=year_min, year_max=year_max)
 
-print(url)
+print(url, end='\n''\n')
 
-
-# partie scrap
 
 
 # Faire une demande GET à l'URL
@@ -28,12 +26,25 @@ if response.status_code == 200:
 
 
    # Trouver tous les éléments searchCard
-   search_card_elements = soup.find_all(class_='searchCard')
+   searchCard_elements = soup.find_all(class_='searchCard')
 
+   for result in searchCard_elements:
+       brand = result.find("h3")
+       if brand:
+          print(brand.text)
 
-   # Imprimer le texte de chaque searchCard
-   for search_card in search_card_elements:
-       print(search_card.text, end='\n''\n')
+       model = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
+       if model:
+          print(model.text)
+
+       year = result.find(class_="Vehiculecard_Vehiculecard_characteristics")
+       if year:
+          print(year.text, end='\n')
+
+       price = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_priceContainer Text_Text_body3")
+       if price:
+          print(price.text, end='\n''\n''\n')
+   
 else:
    print("Il y a une erreur quelque part. Le code est erreur est : ",
          response.status_code)
