@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import csv
-# import pandas as pd
+import pandas as pd
 
 
 # choisir les filtres
@@ -38,9 +38,7 @@ for result in searchCard_elements:
     location = result.find(class_="Vehiculecard_Vehiculecard_location").text
     a_element = result.find("a")
     link = a_element.get("href")
-    if brand and model and year and price and location and link:
-        print(brand.text, model.text,'\n', "Année :", year.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, '\n', "www.lacentrale.fr" + link, end='\n''\n''\n')
-
+    
 
     data_scrap.append([brand, model, year, price, location, link])
 
