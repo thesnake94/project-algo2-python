@@ -38,7 +38,7 @@ for result in searchCard_elements:
 
    if result:
       print(brand.text, model.text,'\n', "Année :", year.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, '\n', "www.lacentrale.fr" + link, end='\n''\n''\n')
-      data_scrap.append([brand, model, year, price])
+      data_scrap.append([brand.text, model.text, year.text, price.text])
 
 # Écrire les données dans un fichier CSV
 with open("bmw.csv", "w", newline="") as fd:
