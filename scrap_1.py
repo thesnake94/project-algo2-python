@@ -36,10 +36,3 @@ for result in searchCard_elements:
    if result:
       print(brand.text, model.text, year.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, end='\n''\n')
 
-
-
-
-
-fd = open("file.csv", "w")
-csv_writer = csv.writer
-fd.close

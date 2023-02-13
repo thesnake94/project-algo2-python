@@ -28,13 +28,16 @@ searchCard_elements = soup.find_all(class_='searchCard')
 data_scrap = []
 
 for result in searchCard_elements:
-   brand = result.find("h3").text
-   model = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2").text
-   year = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2").text
-   price = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_priceContainer Text_Text_body3").text
-   location = result.find(class_="Vehiculecard_Vehiculecard_location").text
+   brand = result.find("h3")
+   model = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
+   year = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")
+   price = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_priceContainer Text_Text_body3")
+   location = result.find(class_="Vehiculecard_Vehiculecard_location")
+   a_element = result.find("a")
+   link = a_element.get("href")
+
    if result:
-      print(brand, model,'\n', "Année :", year,'\n', "Prix :", price, '\n',"localisé dans le", location, end='\n''\n')
+      print(brand.text, model.text,'\n', "Année :", year.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, '\n', "www.lacentrale.fr" + link, end='\n''\n''\n')
       data_scrap.append([brand, model, year, price])
 
 # Écrire les données dans un fichier CSV
