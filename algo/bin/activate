@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/dayen/Documents/algo/algo"
+VIRTUAL_ENV="/home/dayen/Documents/project-algo2-python/algo"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

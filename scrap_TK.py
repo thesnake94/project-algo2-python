@@ -7,7 +7,8 @@ def scrape_data():
     brand = "BMW"
     year_min = 2010
     year_max = 2019
-    url = """https://www.lacentrale.fr/listing?makesModelsCommercialNames={brand}&yearMax={year_max}&yearMin={year_min}""".format(
+    power_min = 250
+    url = """https://www.lacentrale.fr/listing?makesModelsCommercialNames={brand}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
         brand=brand, year_min=year_min, year_max=year_max)
 
     response = requests.get(url)
@@ -20,7 +21,8 @@ def scrape_data():
             data.append(search_card.text.split("\n"))
         display_data(data)
     else:
-        print("Il y a une erreur quelque part. Le code est erreur est : ", response.status_code)
+        print("Il y a une erreur quelque part. Le code est erreur est : ",
+              response.status_code)
 
 
 def display_data(data):
