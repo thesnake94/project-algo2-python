@@ -25,7 +25,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 searchCard_elements = soup.find_all(class_='searchCard')   
 
 # Liste pour stocker les données
-data = []
+data_scrap = []
 
 for result in searchCard_elements:
    brand = result.find("h3").text
@@ -35,13 +35,13 @@ for result in searchCard_elements:
    location = result.find(class_="Vehiculecard_Vehiculecard_location").text
    if result:
       print(brand, model, year,'\n', "Prix :", price, '\n',"localisé dans le", location, end='\n''\n')
-      data.append([brand, model, year, price])
+      data_scrap.append([brand, model, year, price])
 
 # Écrire les données dans un fichier CSV
 with open("bmw.csv", "w", newline="") as fd:
    writer = csv.writer(fd)
    writer.writerow(["Marque", "Modèle", "Année", "Prix"]) # Écrire les en-têtes
-   for row in data:
+   for row in data_scrap:
       writer.writerow(row)
 
-print("Données écrites dans le fichier bmw.csv.")
+print("Les données scrapé ont été écrites dans le fichier bmw.csv.")
