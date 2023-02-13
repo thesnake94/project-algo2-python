@@ -34,7 +34,7 @@ for result in searchCard_elements:
    price = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_priceContainer Text_Text_body3").text
    location = result.find(class_="Vehiculecard_Vehiculecard_location").text
    if result:
-      print(brand, model, year,'\n', "Prix :", price, '\n',"localisé dans le", location, end='\n''\n')
+      print(brand, model,'\n', "Année :", year,'\n', "Prix :", price, '\n',"localisé dans le", location, end='\n''\n')
       data_scrap.append([brand, model, year, price])
 
 # Écrire les données dans un fichier CSV
