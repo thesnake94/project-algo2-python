@@ -9,7 +9,7 @@ def scrape_data():
     year_max = 2019
     power_min = 250
     url = """https://www.lacentrale.fr/listing?makesModelsCommercialNames={brand}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
-        brand=brand, year_min=year_min, year_max=year_max)
+        brand=brand,power_min=power_min, year_min=year_min, year_max=year_max)
 
     response = requests.get(url)
 
