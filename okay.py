@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
 
 
 # choisir les filtres
@@ -7,9 +8,10 @@ brand = "BMW"
 year_min = 2010
 year_max = 2019
 power_min = 350
-energies = "ess"
-url = """https://www.lacentrale.fr/listing?energies={energies}&makesModelsCommercialNames={brand}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
-brand=brand,energies=energies, power_min=power_min, year_min=year_min, year_max=year_max)
+energy = "ess"
+
+url = """https://www.lacentrale.fr/listing?energies={energy}&makesModelsCommercialNames={brand}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
+brand=brand,energy=energy, power_min=power_min, year_min=year_min, year_max=year_max)
 
 print(url, end='\n''\n')
 
@@ -35,3 +37,6 @@ for result in searchCard_elements:
       print(brand.text, model.text, year.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, end='\n''\n')
 
 
+fd = open("file.csv", "w")
+csv_writer = csv.writer
+fd.close
