@@ -38,12 +38,12 @@ for result in searchCard_elements:
 
    if result:
       print(brand.text, model.text,'\n', "Année :", year.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, '\n', "www.lacentrale.fr" + link, end='\n''\n''\n')
-      data_scrap.append([brand.text, model.text, year.text, price.text])
+      data_scrap.append([brand.text, model.text, year.text, price.text, location.text])
 
 # Écrire les données dans un fichier CSV
 with open("bmw.csv", "w", newline="") as fd:
    writer = csv.writer(fd)
-   writer.writerow(["Marque", "Modèle", "Année", "Prix"]) # Écrire les en-têtes
+   writer.writerow(["Marque", "Modèle", "Année", "Prix", "Département"]) # Écrire les en-têtes
    for row in data_scrap:
       writer.writerow(row)
 
