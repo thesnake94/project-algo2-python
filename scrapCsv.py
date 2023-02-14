@@ -47,7 +47,7 @@ for result in searchCard_elements:
       brand_text = brand.text.split()[0]
       model_text = " ".join(model.text.split()[1:])
 
-      print(model.text, motor.text,'\n', "Année :", year.text,'\n', fuel.text,'\n' , "Prix :", price.text, '\n',"localisé dans le", location.text, '\n', "www.lacentrale.fr" + link, mileage.text, end='\n''\n''\n')
+      print(model.text, motor.text,'\n', "Année :", year.text,'\n', fuel.text,'\n' , mileage.text,'\n', "Prix :", price.text, '\n',"localisé dans le", location.text, '\n', "www.lacentrale.fr" + link, end='\n''\n''\n')
       
 
       # Convertir les chaînes de caractères en entiers
