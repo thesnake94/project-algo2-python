@@ -31,19 +31,19 @@ def scrap():
         data_scrap = []
 
 
-        for result in searchCard_elements:
-            brand = result.find("h3")
-            model = result.find("h3")
-            motor = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
-            price = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_price Text_Text_subtitle2")
-            location = result.find(class_="Vehiculecard_Vehiculecard_location")
-            year = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")
-            fuel = result.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")[3]
-            mileage = result.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")[1]
-            a_element = result.find("a")
+        for scrap in searchCard_elements:
+            brand = scrap.find("h3")
+            model = scrap.find("h3")
+            motor = scrap.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
+            price = scrap.find(class_="Text_Text_text Vehiculecard_Vehiculecard_price Text_Text_subtitle2")
+            location = scrap.find(class_="Vehiculecard_Vehiculecard_location")
+            year = scrap.find(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")
+            fuel = scrap.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")[3]
+            mileage = scrap.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")[1]
+            a_element = scrap.find("a")
             link = a_element.get("href")
 
-            if result:
+            if scrap:
                 brand_text = brand.text.split()[0]
                 model_text = " ".join(model.text.split()[1:])
 
