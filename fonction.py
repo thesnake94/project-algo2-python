@@ -4,7 +4,7 @@ import csv
 # import pandas as pd
 
 
-def scrap_url():
+def scrap():
     for page in range(1, 5):
     # choisir les filtres
         brand = "BMW"
@@ -73,5 +73,5 @@ def scrap_print():
     print("Les données scrapé ont été écrites dans le fichier zebi.csv.")
 
 if __name__ == "__main__":
-    scrap_url()
+    scrap()
     scrap_print()
