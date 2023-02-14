@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import csv
-# import pandas as pd
-
 
 def scrap():
     for page in range(1, 5):
