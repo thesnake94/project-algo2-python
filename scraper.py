@@ -31,7 +31,7 @@ def main() :
 
         """trouver tous les éléments de la classe searchCard"""
         scrap_card_car = soup.find_all(class_='searchCard')   
-
+        
 
         """liste pour stocker les données"""
         data_list = []
