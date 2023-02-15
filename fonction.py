@@ -24,11 +24,11 @@ def main() :
 
 
         """faire une demande GET à l'URL"""
-        response = requests.get(url)
+        asked = requests.get(url)
 
 
         """créer un objet BeautifulSoup à partir de la réponse HTML"""
-        soup = BeautifulSoup(response.text, 'html.parser')
+        soup = BeautifulSoup(asked.text, 'html.parser')
 
 
         """trouver tous les éléments de la classe searchCard"""
