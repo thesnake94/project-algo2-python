@@ -9,7 +9,7 @@ for page in range(1, 5):
     year_max = 2019
     power_min = 350
     fuel = ""
-    url = """https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
+    url = "https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}".format(
         brand=brand, fuel=fuel, power_min=power_min, page=page, year_min=year_min, year_max=year_max,
     )
 
@@ -27,16 +27,16 @@ for page in range(1, 5):
     # Liste pour stocker les données
     data_scrap = []
 
-    for result in searchCard_elements:
-        brand_model = result.find_all("h3")
-        motor = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
-        price = result.find(class_="Text_Text_text Vehiculecard_Vehiculecard_price Text_Text_subtitle2")
-        location = result.find(class_="Vehiculecard_Vehiculecard_location")
-        year_fuel_mileage = result.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")
-        a_element = result.find("a")
+    for scrap in searchCard_elements:
+        brand_model = scrap.find("h3")
+        motor = scrap.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
+        price = scrap.find(class_="Text_Text_text Vehiculecard_Vehiculecard_price Text_Text_subtitle2")
+        location = scrap.find(class_="Vehiculecard_Vehiculecard_location")
+        year_fuel_mileage = scrap.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")
+        a_element = scrap.find("a")
         link = a_element.get("href")
 
-        if result:
+        if scrap:
             brand_text = brand_model[0].text.split()[0]
             model_text = " ".join(brand_model[0].text.split()[1:])
             year_text = year_fuel_mileage[0].text

@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
-def scrap():
+def main():
     for page in range(1, 5):
     # choisir les filtres
         brand = "BMW"
@@ -71,5 +71,5 @@ def scrap_print():
     print("Les données scrapé ont été écrites dans le fichier zebi.csv.")
 
 if __name__ == "__main__":
-    scrap()
+    main()
     scrap_print()
