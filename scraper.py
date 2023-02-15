@@ -10,13 +10,12 @@ def main() :
         brand = "BMW"
         year_min = 2010
         year_max = 2019
-        power_min = 350
         fuel = ""
 
 
         """l'url avec les variables dedans"""
-        url = """https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
-        brand=brand,fuel=fuel, power_min=power_min,page=page, year_min=year_min, year_max=year_max,)
+        url = """https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&yearMax={year_max}&yearMin={year_min}""".format(
+        brand=brand,fuel=fuel, page=page, year_min=year_min, year_max=year_max,)
 
 
         """on affiche l'url"""
