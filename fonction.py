@@ -5,7 +5,7 @@ import csv
 def main() :
     """pour toutes les pages de 1 à 5"""
     for page in range(1, 6) :
-        # on choisi les filtres en déclarant les variables pour l'url
+        """on choisi les filtres en déclarant les variables pour l'url"""
         brand = "BMW"
         year_min = 2010
         year_max = 2019
