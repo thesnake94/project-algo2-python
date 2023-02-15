@@ -13,7 +13,7 @@ def main():
         power_min = 350
         fuel = ""
 
-        # l'url avec les variables dedans
+        """l'url avec les variables dedans"""
         url = """https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}""".format(
         brand=brand,fuel=fuel, power_min=power_min,page=page, year_min=year_min, year_max=year_max,)
 
