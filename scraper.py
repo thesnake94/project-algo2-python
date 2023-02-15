@@ -17,7 +17,6 @@ def main() :
         url = """https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&yearMax={year_max}&yearMin={year_min}""".format(
         brand=brand,fuel=fuel, page=page, year_min=year_min, year_max=year_max,)
 
-
         """on affiche l'url"""
         print("Voici l'url de la page scraper :",'\n', url, end='\n''\n')
 
@@ -74,7 +73,7 @@ def main() :
                 data_list.append([brand_text, model_text, motor.text, year_int, price_int, fuel_text, mileage_int, location_int])
 
         
-
+        
         """Écrire les données dans un fichier CSV"""
         with open("cars.csv", "a") as fd :
             writer = csv.writer(fd)
@@ -84,7 +83,7 @@ def main() :
 
 
 def scrap_print() :
-    print("Les données scrap ont été écrites dans le fichier cars.csv.")
+        print("Les données scrap ont été écrites dans le fichier cars.csv.")
 
 
 """execute les fonctions 'main' et 'data_list'"""
