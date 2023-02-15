@@ -53,11 +53,11 @@ def main() :
             if scrap:
 
                 """on créer les variables qui récupèrent seulement les mots que l'on veut dans les variables créées avant"""
-                brand_text = brand_model.text.split()[0] # pour la variable brand on récupère seulement le premier mot pour la marque
-                model_text = " ".join(brand_model.text.split()[1:]) # pour la variable model on récupère le reste des mots apres le premier du h3 pour le modele
+                brand_text = brand_model.text.split()[0] # on récupère seulement le premier mot
+                model_text = " ".join(brand_model.text.split()[1:]) # on récupère le reste de la chaine de caractere
                 year_text = year_fuel_mileage[0].text # extrait le texte du premier élément year de la liste et crée la variable
-                mileage_text = year_fuel_mileage[1].text # extrait le texte du deuxieme élément km de la liste et crée la variable
-                fuel_text = year_fuel_mileage[3].text # extrait le texte du quatrieme élément energie de la liste et crée la variable
+                mileage_text = year_fuel_mileage[1].text
+                fuel_text = year_fuel_mileage[3].text
                 
 
                 """on affiche toutes les données récupérées"""
@@ -65,10 +65,10 @@ def main() :
                 
 
                 """on converti les chaînes de caractères en entiers (string en int)"""
-                price_int = int(price.text.replace(" ", "").replace("€", "")) # convertit le prix en int en supprimant les espaces et le "€"
+                price_int = int(price.text.replace(" ", "").replace("€", "")) # supprime les espaces
                 year_int = int(year_text) # convertit l'année en int
-                mileage_int = int(mileage_text.replace("\xa0", "").replace("km", "")) # convertit le kilometrage en int en supprimant les espaces avec "\xa0" et le "km"
-                location_int = int(location.text) # convertit la localisation en int
+                mileage_int = int(mileage_text.replace("\xa0", "").replace("km", "")) # supprime les espaces avec "\xa0" 
+                location_int = int(location.text)
 
 
                 """on ajoute les données converties à la liste data_list"""
@@ -77,11 +77,11 @@ def main() :
         
 
         """Écrire les données dans un fichier CSV"""
-        with open("cars.csv", "a") as fd : # ouvre le fichier en mode ajout avec "a"
-            writer = csv.writer(fd) # objet writer pour écrire dans le csv
-            writer.writerow(["Brand" ,"Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"]) # écrit les colonnes
-            for row in data_list: # parcours les éléments de la liste 
-                writer.writerow(row) # ecrit chaque ligne dans le fichier csv 
+        with open("cars.csv", "a") as fd :
+            writer = csv.writer(fd)
+            writer.writerow(["Brand" ,"Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"])
+            for row in data_list: 
+                writer.writerow(row)
 
 
 def scrap_print() :

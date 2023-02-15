@@ -74,7 +74,7 @@ def main():
    
 
             # Créer un DataFrame à partir de la liste data_scrap
-            df = pd.DataFrame(data_scrap, columns=["Marque" ,"Modèle", "Motorisation", "Année", "Prix en €", "Energie", "Kilométrage", "Département"])
+            df = pd.DataFrame(data_scrap, columns=["Brand" ,"Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"])
 
             # Écrire les données dans un fichier CSV
             with open("zebi.csv", "a", newline="") as fd: # ouvre le fichier en mode ajout avec "a"
