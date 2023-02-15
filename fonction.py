@@ -4,8 +4,8 @@ import csv
 
 
 def main() :
-    """pour toutes les pages de 1 à 5"""
-    for page in range(1, 6) :
+    """pour toutes les pages de 1 à 3"""
+    for page in range(1, 4) :
         """on choisi les filtres en déclarant les variables pour l'url"""
         brand = "BMW"
         year_min = 2010
@@ -36,7 +36,7 @@ def main() :
 
 
         """liste pour stocker les données"""
-        data_scrap = []
+        data_list = []
 
 
         """definir les variables tant que les éléments sont dans les card"""
@@ -71,24 +71,24 @@ def main() :
                 location_int = int(location.text) # convertit la localisation en int
 
 
-                """on ajoute les données converties à la liste data_scrap"""
-                data_scrap.append([brand_text, model_text, motor.text, year_int, price_int, fuel_text, mileage_int, location_int])
+                """on ajoute les données converties à la liste data_list"""
+                data_list.append([brand_text, model_text, motor.text, year_int, price_int, fuel_text, mileage_int, location_int])
 
         
 
         """Écrire les données dans un fichier CSV"""
         with open("cars.csv", "a") as fd : # ouvre le fichier en mode ajout avec "a"
             writer = csv.writer(fd) # objet writer pour écrire dans le csv
-            writer.writerow(["Marque" ,"Modèle", "Motorisation", "Année", "Prix en €", "Energie", "Kilométrage", "Département"]) # écrit les colonnes
-            for row in data_scrap: # parcours les éléments de la liste 
+            writer.writerow(["Brand" ,"Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"]) # écrit les colonnes
+            for row in data_list: # parcours les éléments de la liste 
                 writer.writerow(row) # ecrit chaque ligne dans le fichier csv 
 
 
 def scrap_print() :
-    print("Les données scrapé ont été écrites dans le fichier cars.csv.")
+    print("Les données scrap ont été écrites dans le fichier cars.csv.")
 
 
-"""execute les fonctions 'main' et 'data_scrap'"""
+"""execute les fonctions 'main' et 'data_list'"""
 if __name__ == "__main__" :
     main()
     scrap_print()
