@@ -2,9 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
-def main():
+def main() :
     # pour toutes les pages de 1 à 5
-    for page in range(1, 6):
+    for page in range(1, 16) :
         # on choisi les filtres en déclarant les variables pour l'url
         brand = "BMW"
         year_min = 2010
@@ -26,14 +26,14 @@ def main():
         # créer un objet BeautifulSoup à partir de la réponse HTML
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # trouver tous les éléments searchCard
-        searchCard_elements = soup.find_all(class_='searchCard')   
+        # trouver tous les éléments de la classe searchCard
+        scrapCardCar = soup.find_all(class_='searchCard')   
 
         # liste pour stocker les données
         data_scrap = []
 
         # definir les variables tant que les éléments sont dans les card
-        for scrap in searchCard_elements:
+        for scrap in scrapCardCar:
             brand = scrap.find("h3") # marque
             model = scrap.find("h3") #modele
             motor = scrap.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2") # moteur
@@ -67,17 +67,17 @@ def main():
         
 
     # Écrire les données dans un fichier CSV
-        with open("zebi.csv", "a") as fd: # ouvre le fichier en mode ajout avec "a"
+        with open("cars.csv", "a") as fd : # ouvre le fichier en mode ajout avec "a"
             writer = csv.writer(fd) # objet writer pour écrire dans le csv
             writer.writerow(["Marque" ,"Modèle", "Motorisation", "Année", "Prix en €", "Energie", "Kilométrage", "Département"]) # écrit les colonnes
             for row in data_scrap: # parcours les éléments de la liste 
                 writer.writerow(row) # ecrit chaque ligne dans le fichier csv 
 
-def scrap_print():
-    print("Les données scrapé ont été écrites dans le fichier zebi.csv.")
+def scrap_print() :
+    print("Les données scrapé ont été écrites dans le fichier cars.csv.")
 
 
 # execute les fonctions "main" et "data_scrap"
-if __name__ == "__main__":
+if __name__ == "__main__" :
     main()
     scrap_print()
