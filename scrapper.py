@@ -4,7 +4,7 @@ import csv
 
 def format_url(page, brand):
     """on choisi les filtres en déclarant les variables pour l'url"""
-    brand = "BMW"
+    brand = "zoa"
     year_min = 2010
     year_max = 2019
     fuel = ""
@@ -59,7 +59,7 @@ def main(page, brand) :
                 """on créer les variables qui récupèrent seulement les mots que l'on veut dans les variables créées avant"""
                 brand_text = brand_model.text.split()[0]
                 model_text = " ".join(brand_model.text.split()[1:])
-                year_text = year_fuel_mileage[0].text # extrait le texte du premier élément year de la liste et crée la variable
+                year_text = year_fuel_mileage[0].text
                 mileage_text = year_fuel_mileage[1].text
                 fuel_text = year_fuel_mileage[3].text
                 
@@ -69,9 +69,9 @@ def main(page, brand) :
                 
 
                 """on converti les chaînes de caractères en entiers (string en int)"""
-                price_int = int(price.text.replace(" ", "").replace("€", "")) # supprime les espaces
-                year_int = int(year_text) # convertit l'année en int
-                mileage_int = int(mileage_text.replace("\xa0", "").replace("km", "")) # supprime les espaces avec "\xa0" 
+                price_int = int(price.text.replace(" ", "").replace("€", ""))
+                year_int = int(year_text)
+                mileage_int = int(mileage_text.replace("\xa0", "").replace("km", ""))
                 location_int = int(location.text)
 
 
