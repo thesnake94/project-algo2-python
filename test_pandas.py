@@ -1,4 +1,4 @@
-"""ce code marche ne marche pas sur mon ubuntu, cause de probleme d'installation pandas """
+"""ce code marche ne marche pas sur mon ubuntu, cause probleme d'installation pandas """
 """marche sur mon windows"""
 
 
