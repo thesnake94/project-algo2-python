@@ -9,7 +9,7 @@ import pandas as pd
 
 def format_url(page, brand):
     """on choisi les filtres en déclarant les variables pour l'url"""
-    brand = "atchoummmm"
+    brand = "BMW"
     year_min = 2010
     year_max = 2019
     fuel = ""
@@ -81,12 +81,13 @@ def main(page, brand) :
 
 
                 """on ajoute les données converties à la liste data_list"""
-                df = pd.DataFrame(data_list, columns=["Brand" ,"Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"])
+                """on ajoute les données converties à la liste data_list"""
+                data_list.append([brand_text, model_text, motor.text, year_int, price_int, fuel_text, mileage_int, location_int])
 
-    
-        if scrap_card_car :
-            """Écrire les données dans un fichier CSV"""     
-            with open("zebi.csv", "a", newline="") as fd: # ouvre le fichier en mode ajout avec "a"
+        if scrap_card_car:
+            """Écrire les données dans un fichier CSV"""
+            df = pd.DataFrame(data_list, columns=["Brand", "Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"])
+            with open("cars_pandas.csv", "a", newline="") as fd: # ouvre le fichier en mode ajout avec "a"
                 df.to_csv(fd, header=not fd.tell(), index=False) # écrire le DataFrame dans le fichier CSV
 
 
