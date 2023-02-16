@@ -4,11 +4,11 @@ import csv
 
 def format_url(page, brand):
     """on choisi les filtres en déclarant les variables pour l'url"""
-    brand = "zoa"
+    brand = "BMW"
     year_min = 2010
     year_max = 2019
     fuel = ""
-    power_min = "100"
+    power_min = "500"
 
     """l'url avec les variables dedans"""
     url = "https://www.lacentrale.fr/listing?energies={fuel}&makesModelsCommercialNames={brand}&options=&page={page}&powerDINMin={power_min}&yearMax={year_max}&yearMin={year_min}".format(
@@ -81,7 +81,7 @@ def main(page, brand) :
     
         if scrap_card_car :
             """Écrire les données dans un fichier CSV"""
-            with open("test.csv", "a", newline='') as fd :
+            with open("cars.csv", "a", newline='') as fd :
                 writer = csv.writer(fd)
                 writer.writerow(["Brand" ,"Model", "Motor", "Year", "Price", "Fuel", "Mileage", "Location"])
                 for row in data_list: 
