@@ -45,13 +45,13 @@ def main(page, brand) :
 
         for scrapper in scrap_card_car :
 
-            brand_model = scrapper.find("h3") # marque et modele
-            motor = scrapper.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2") # moteur
-            price = scrapper.find(class_="Text_Text_text Vehiculecard_Vehiculecard_price Text_Text_subtitle2") # prix
-            location = scrapper.find(class_="Vehiculecard_Vehiculecard_location") # localisation
-            year_fuel_mileage = scrapper.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2") # année, energie, kilométrage
+            brand_model = scrapper.find("h3")
+            motor = scrapper.find(class_="Text_Text_text Vehiculecard_Vehiculecard_subTitle Text_Text_body2")
+            price = scrapper.find(class_="Text_Text_text Vehiculecard_Vehiculecard_price Text_Text_subtitle2")
+            location = scrapper.find(class_="Vehiculecard_Vehiculecard_location")
+            year_fuel_mileage = scrapper.find_all(class_="Text_Text_text Vehiculecard_Vehiculecard_characteristicsItems Text_Text_body2")
             a_element = scrapper.find("a")
-            link = a_element.get("href") # lien de l'annonce
+            link = a_element.get("href")
 
 
             if scrapper:
